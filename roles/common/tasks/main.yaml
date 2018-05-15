@@ -25,3 +25,18 @@
     - ca-certificates
     - screen
     - curl
+    - vim
+    - chrony
+    - speedtest-cli
+
+- name: Removing ntpd
+  apt:
+    name: ntpd
+    state: absent
+
+- name: Running chrony
+  service:
+    name: chrony
+    state: restarted
+    enabled: yes
+ 
